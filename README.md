@@ -76,7 +76,7 @@ The modal component accepts the following properties:
 | [`onClose`](onClose)                | `() => void`                                                                                                                                       | true     | -             |
 | [`content`](#content)               | `string` \| `JSX.Element` \|`ReactNode`                                                                                                            | true     | -             |
 | [`title`](#title)                   | `string` \| `JSX.Element` \| `ReactNode`                                                                                                           | false    | -             |
-| [`buttons`](#buttons)               | `[]` \| [`[ButtonProperties]`](#button-properties) \| [`[ButtonProperties, ButtonProperties]`](#button-properties) \| `JSX.Element` \| `ReactNode` | false    | -             |
+| [`buttons`](#buttons)               | `[]` \| [`ButtonProperties[]`](#button-properties) \| `JSX.Element` \| `ReactNode` | false    | -             |
 | [`width`](#width)                   | `string`                                                                                                                                           | false    | -             |
 | [`height`](#height)                 | `string`                                                                                                                                           | false    | -             |
 | [`closable`](#closable)             | `boolean`                                                                                                                                          | false    | false         |
@@ -118,7 +118,7 @@ The title of the modal.
 
 ### buttons
 
-- Type: `[]` | [`[ButtonProperties]`](#button-properties) | [`[ButtonProperties, ButtonProperties]`](#button-properties) | `JSX.Element` | `ReactNode`
+- Type: `[]` | [`ButtonProperties[]`](#button-properties) | `JSX.Element` | `ReactNode`
 - Required: `false`
 
 An array of [Button properties](#button-properties) that will be displayed as buttons in the modal. Maximum of 2 buttons by default. If more are needed, you can pass in custom HTML.

@@ -62,7 +62,7 @@ LargeTextContent.args = {
 	],
 };
 
-export const Form = Template.bind({});
+export const CustomHTMLContent = Template.bind({});
 const employeeForm = (
 	<form style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
 		<label style={{ fontWeight: 'bold' }} htmlFor="firstname">
@@ -92,7 +92,7 @@ const employeeForm = (
 	</form>
 );
 
-Form.args = {
+CustomHTMLContent.args = {
 	title: 'Create Employee',
 	content: employeeForm,
 	closable: true,
