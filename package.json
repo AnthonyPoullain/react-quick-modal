@@ -1,7 +1,7 @@
 {
 	"name": "react-quick-modal",
 	"private": false,
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"type": "module",
 	"main": "dist/index.umd.js",
 	"module": "dist/index.es.js",
@@ -24,7 +24,9 @@
 		"prepare": "npm run build",
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
 	},
 	"dependencies": {
 		"focus-trap-react": "^10.1.0"
@@ -34,8 +36,14 @@
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
+		"@babel/core": "^7.21.0",
+		"@storybook/addon-actions": "^7.0.0-beta.53",
+		"@storybook/addon-essentials": "^7.0.0-beta.53",
+		"@storybook/addon-interactions": "^7.0.0-beta.53",
+		"@storybook/addon-links": "^7.0.0-beta.53",
+		"@storybook/react": "^7.0.0-beta.53",
+		"@storybook/react-vite": "^7.0.0-beta.53",
+		"@storybook/testing-library": "^0.0.14-next.1",
 		"@testing-library/jest-dom": "^5.16.5",
 		"@testing-library/react": "^13.4.0",
 		"@testing-library/user-event": "^14.4.3",
@@ -45,17 +53,22 @@
 		"@typescript-eslint/parser": "^5.52.0",
 		"@vitejs/plugin-react": "^3.1.0",
 		"@vitest/coverage-c8": "^0.28.5",
+		"babel-loader": "^8.3.0",
 		"eslint": "^8.34.0",
 		"eslint-config-airbnb": "^19.0.4",
 		"eslint-config-airbnb-typescript": "^17.0.0",
 		"eslint-config-prettier": "^8.6.0",
 		"eslint-plugin-react": "^7.32.2",
+		"eslint-plugin-storybook": "^0.6.11",
 		"jsdom": "^21.1.0",
 		"prettier": "^2.8.4",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"storybook": "^7.0.0-beta.53",
 		"typescript": "^4.9.3",
 		"vite": "^4.1.0",
-		"vite-plugin-dts": "^2.0.0-beta.3",
 		"vite-plugin-css-injected-by-js": "^3.0.1",
+		"vite-plugin-dts": "^2.0.0-beta.3",
 		"vitest": "^0.28.3"
 	}
 }

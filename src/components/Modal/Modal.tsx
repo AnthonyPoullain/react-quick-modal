@@ -1,9 +1,10 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { ReactNode, useEffect, useState } from 'react';
 import FocusTrap from 'focus-trap-react';
 import './Modal.css';
 import ConditionalPortalWrapper from '../ConditionalPortalWrapper/ConditionalPortalWrapper';
 
-interface ButtonProperties {
+export interface ButtonProperties {
 	label: string | JSX.Element | ReactNode;
 	variant?: 'secondary';
 	color?: string;
@@ -11,7 +12,7 @@ interface ButtonProperties {
 	timer?: number;
 }
 
-interface ModalProperties {
+export interface ModalProperties {
 	open: boolean;
 	onClose: () => void | void;
 	content: string | JSX.Element | ReactNode;
@@ -97,9 +98,7 @@ function Modal({
 		if (open) {
 			document.addEventListener('keydown', handleKeydown);
 		}
-		return open
-			? () => document.removeEventListener('keydown', handleKeydown)
-			: () => null;
+		return () => document.removeEventListener('keydown', handleKeydown);
 	}, [open]);
 
 	return open ? (
