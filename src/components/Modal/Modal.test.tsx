@@ -206,6 +206,26 @@ describe('Modal component', () => {
 				expect(mockHandleClose).toHaveBeenCalled();
 			});
 		});
+		describe('When the timer function is passed', () => {
+			it('should disable the button', async () => {
+				const { getByRole } = render(
+					// @ts-ignore
+					<Modal
+						open
+						trapFocus={false}
+						buttons={[
+							{
+								label: 'Countdown',
+								timer: 5,
+							},
+						]}
+					/>
+				);
+				const button = getByRole('button');
+				expect(button).toBeInTheDocument();
+				expect(button).toBeDisabled();
+			});
+		});
 		describe('When custom HTML is passed as props', () => {
 			it('should render custom HTML button', async () => {
 				const { getByRole } = render(
