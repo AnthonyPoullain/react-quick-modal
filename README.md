@@ -1,4 +1,6 @@
 # React Quick Modal
+[![npm version](https://badge.fury.io/js/react-quick-modal.svg)](https://badge.fury.io/js/react-quick-modal)
+![npm](https://img.shields.io/npm/dw/react-quick-modal)
 
 A minimalist, easy to setup and style, React modal component.
 
