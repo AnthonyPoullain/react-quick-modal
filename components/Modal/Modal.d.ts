@@ -11,7 +11,7 @@ export interface ModalProperties {
     onClose: () => void | void;
     content: string | JSX.Element | ReactNode;
     title?: string | JSX.Element | ReactNode;
-    buttons?: [] | [ButtonProperties] | [ButtonProperties, ButtonProperties] | JSX.Element | ReactNode;
+    buttons?: [] | ButtonProperties[] | JSX.Element | ReactNode;
     height?: string;
     width?: string;
     closable?: boolean;
