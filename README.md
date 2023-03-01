@@ -66,7 +66,7 @@ function MyComponent() {
 }
 ```
 
-**_Note:_** _`open` and `onClose` are required. `open` is a boolean value dictating wether to display the modal or not, and `onClose` is the setter function of this boolean value. For the modal to be able to close when a button is clicked, it needs to have access to both of these, passed in from its parent component. See example above._
+***Note:** `open` and `onClose` are required. `open` is a boolean value dictating wether to display the modal or not, and `onClose` is the setter function of this boolean value. For the modal to be able to close when a button is clicked, it needs to have access to both of these, passed in from its parent component. See example above.*
 
 ## Properties
 
@@ -101,13 +101,13 @@ A boolean value indicating whether the modal is open or not.
 A callback function that should turn the above property `open` back to `false` to close the modal.
 
 
-**_Note:_** By default, all the buttons will close the modal. The clicked button will first run its `onClick` callback, if you gave it one, and immediatly after it will run the `onClose` function. This is an opinionated default as it covers most use cases. If you want a button that keeps the modal open when clicked, you can do so by passing in custom HTML or React node instead of an array of [Button objects](#button-properties). Then, the `onClick` you provide on these will not be wrapped with `onClose`.
-Likewise, if you **DO** want your custom HTML/React component button to close the modal, you need to pass the same function as your `onClose` to its `onClick` attribute.
+***_Note:_** By default, all the buttons will close the modal. The clicked button will first run its `onClick` callback, if you gave it one, and immediatly after it will run the `onClose` function. This is an opinionated default as it covers most use cases. If you want a button that keeps the modal open when clicked, you can do so by passing in custom HTML or React node instead of an array of [Button objects](#button-properties). Then, the `onClick` you provide on these will not be wrapped with `onClose`.
+Likewise, if you **DO** want your custom HTML/React component button to close the modal, you need to pass the same function as your `onClose` to its `onClick` attribute.*
 
 ### content
 
 - Type: `string | JSX.Element | ReactNode`
-- **_Required: `true`_**
+- **Required: `true`**
 
 The content of the modal. Can be a string, or an HTML element/React component for more customization.
 
@@ -116,14 +116,14 @@ The content of the modal. Can be a string, or an HTML element/React component fo
 - Type: `string | JSX.Element | ReactNode`
 - Required: `false`
 
-The title of the modal.
+The title of the modal. Can be a string, or an HTML element/React component for more customization.
 
 ### buttons
 
 - Type: `[]` | [`ButtonProperties[]`](#button-properties) | `JSX.Element` | `ReactNode`
 - Required: `false`
 
-An array of [Button properties](#button-properties) that will be displayed as buttons in the modal. Maximum of 2 buttons by default. If more are needed, you can pass in custom HTML.
+An array of [Button properties](#button-properties) that will be displayed as buttons in the modal. You can also pass in custom HTML/React components. By default, an 'Ok' button will be displayed if this property is left `undefined`. If you want no buttons, pass in an empty array `[]`.
 
 ### width
 
@@ -134,7 +134,7 @@ An array of [Button properties](#button-properties) that will be displayed as bu
 
 A string for the CSS property "width". It is handled by default but you can customize using this property if your use case requires it. The actual content of the modal is scrollable so you can have long text and it will display just fine. You have to pass in a unit (px, vw, %...) and a value superior to 300px (as its the minimum width by default).
 
-**_Note:_** This value determines the width of the actual content of the modal, not the modal itself, so it doesn't include padding. Padding would need to be handled by styling `.modal__container`
+***_Note:_** This value determines the width of the actual content of the modal, not the modal itself, so it doesn't include padding. Padding would need to be handled by styling `.modal__container`*
 
 ### height
 
@@ -161,7 +161,7 @@ A boolean value that if true will display a small close button icon on the upper
 
 A boolean value indicating whether the focus should be trapped within the modal or not. `true` by default.
 
-**_Note:_** If you don't put any "tabbable" elements such as buttons in your modal, you will get an error. Focus can only be trapped if there is something to focus. If for some reason you need to have a modal without any buttons, set `trapFocus: false`
+***_Note:_** If you don't put any "tabbable" elements such as buttons in your modal, you will get an error. Focus can only be trapped if there is something to focus. If for some reason you need to have a modal without any buttons, set `trapFocus: false`*
 
 ### portalSelector
 
@@ -235,8 +235,7 @@ You have 2 choices when it comes to styling:
 
 Either pass in your custom HTML / React components directly to the `title`, `content` and `buttons` props.
 
-OR overwrite the default style by modifying the classes directly in your CSS.
-**_Note:_** Class names use the BEM convention.
+OR overwrite the default style by modifying the classes directly in your CSS. Class names use the BEM convention.
 
 In most cases, you should only need to touch the following classes:
 
@@ -249,6 +248,19 @@ And:
 - `.modal__container` (for shadow, padding,...)
 - `.modal__bg` (_when `dimBackground = true`, for dim opacity, blur..._)
 
+***Note:** You might not be able to overwrite default styles by simply using a class name selector like `.modal__title` because of the way the CSS is loaded. Use a selector of higher specificity:*
+
+```css
+/* By specifiying a parent element... */
+.modal .modal__title {
+    font-weight: bold;
+}
+/* ...or by using '!important' */
+.modal__title {
+    font-weight: bold !important;
+}
+```
+
 Here is the full structure:
 
 ```html
@@ -256,25 +268,25 @@ Here is the full structure:
 <div class="modal__bg" />
 
 <div class="modal__container">
-	<div class="modal">
-		<!-- If closable === true -->
-		<button class="modal__close-btn" />
+    <div class="modal">
+        <!-- If closable === true -->
+        <button class="modal__close-btn" />
 
-		<!-- Header -->
-		<div class="modal__header">
-			<h2 class="modal__title" />
-		</div>
-
-		<!-- Body -->
-		<div class="modal__body">
-			<p class="modal__content"/>
-		</div>
-
-		<!-- Footer -->
-		<div class="modal__footer">
-			<button class="modal__btn"/>
-			<button class="modal__btn modal__btn--secondary"/>
-		</div>
+	<!-- Header -->
+	<div class="modal__header">
+		<h2 class="modal__title" />
 	</div>
+
+	<!-- Body -->
+	<div class="modal__body">
+		<p class="modal__content"/>
+	</div>
+
+	<!-- Footer -->
+	<div class="modal__footer">
+		<button class="modal__btn"/>
+		<button class="modal__btn modal__btn--secondary"/>
+	</div>
+    </div>
 </div>
 ```
