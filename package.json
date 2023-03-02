@@ -2,7 +2,7 @@
 	"homepage": "https://anthonypoullain.github.io/react-quick-modal",
 	"name": "react-quick-modal",
 	"private": false,
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"type": "module",
 	"main": "dist/index.umd.js",
 	"module": "dist/index.es.js",
